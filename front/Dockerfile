@@ -1,7 +1,8 @@
 FROM node:9-stretch
 
 # Create application 
-RUN mkdir -p /app
+RUN mkdir -p /app  &&\
+    chown -R node:node /app
 WORKDIR /app
 
 # change to non root

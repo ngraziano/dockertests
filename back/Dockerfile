@@ -10,7 +10,7 @@ WORKDIR /app
 USER node
 
 # copy package list and install
-COPY --chown=node:node package.json package-lock.json /app
+COPY --chown=node:node package.json package-lock.json /app/
 RUN npm install
 
 # copy source

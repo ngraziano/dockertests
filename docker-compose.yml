@@ -15,5 +15,6 @@ volumes:
     backdata:
         driver: local
         driver_opts:
+            type: cifs
             device: //192.168.0.100/home
             o: username=test,password=motdepasse,uid=1000,gid=1000

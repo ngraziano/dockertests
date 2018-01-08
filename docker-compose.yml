@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.4"
 services:
     front:
         image: dock.grazy.ovh/demo-front:latest
@@ -8,18 +8,12 @@ services:
             BACKURL: http://back:3001/
 
     back:
-        image: dock.grazy.ovh/demo-front:latest
+        image: dock.grazy.ovh/demo-back:latest
         volumes:
             - backdata:/app/data
 volumes:
     backdata:
-        - type: volume
-          source: //192.168.0.100/home
-          driver_opts:
-              username: test
-              password: motdepasse
-              uid: "1000"
-              gid: "1000"
-# driver
-
-
+        driver: local
+        driver_opts:
+            device: //192.168.0.100/home
+            o: username=test,password=motdepasse,uid=1000,gid=1000
